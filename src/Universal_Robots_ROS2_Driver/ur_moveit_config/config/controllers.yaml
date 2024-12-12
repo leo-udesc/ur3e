@@ -1,0 +1,44 @@
+controller_names:
+#  - scaled_joint_trajectory_controller
+  - joint_trajectory_controller
+  - egh80_dedo_dir_controller
+  - egh80_dedo_esq_controller
+
+
+#scaled_joint_trajectory_controller:
+#  action_ns: follow_joint_trajectory
+#  type: FollowJointTrajectory
+#  default: true
+#  joints:
+#    - shoulder_pan_joint
+#    - shoulder_lift_joint
+#    - elbow_joint
+#    - wrist_1_joint
+#    - wrist_2_joint
+#    - wrist_3_joint
+
+joint_trajectory_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true #false
+  joints:
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+    
+egh80_dedo_dir_controller:
+  action_ns: gripper_cmd
+  type: GripperCommand
+  default: true
+  joints:
+    - dedo_dir_joint
+
+egh80_dedo_esq_controller:
+  action_ns: gripper_cmd
+  type: GripperCommand
+  default: true
+  joints:
+    - dedo_esq_joint   
