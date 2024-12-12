@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="https://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find Universal_Robots_ROS2_Description)/urdf/camera.gazebo.xacro"/>
+
+    <xacro:macro name="d415_camera" params="parent *joint_origin">
+
+        <joint name="camera_joint" type="fixed">
+            <xacro:insert_block name="joint_origin"/>
+            <parent link="${parent}"/>
+            <child link="camera_link"/>
+            <!-- <axis xyz="1 0 0"/> -->
+        </joint>
+
+        <link name="camera_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="${PI/2} 0 ${PI/2}"/>
+                <geometry>
+                    <xacro:get_mesh name="d415.dae" type="visual" />
+                </geometry>
+            </visual>
+
+            <collision>
+                <geometry>
+                    <xacro:get_mesh name="d415.stl" type="collision"/>
+                </geometry>
+                <origin rpy="${PI/2} 0 0" xyz="0 0 0"/>
+            </collision>
+
+            <inertial>
+                <origin xyz="0 0 0.0"/>
+                <mass value="0.072"/>
+                <inertia ixx="0.003881243" ixy="0" ixz="0" iyy="0.000498940" iyz="0" izz="0.003879257" />
+            </inertial>
+        </link>
+
+    </xacro:macro>
+</robot>

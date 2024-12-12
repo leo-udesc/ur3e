@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<robot name="schunk_egh80_urdf" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+  
+    <xacro:macro name="schunk_egh80_urdf" params="prefix parent *origin ">
+        
+        <!-- Gripper-->
+        <link name="schunk_egh80_link">
+            <visual>
+                <origin xyz="0.0 0.001000000000000025608 0.0" rpy="2.9837243786801082024e-16 -0 0" />
+                <geometry>
+                    <xacro:get_mesh name="gripper_connector" type="visual"/>
+                </geometry>
+                <material name="conector_tcp_material">
+                    <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.001000000000000025608 -3.8353651851674719353e-17" rpy="2.9837243786801082024e-16 -0 0" />
+                <geometry>
+                    <xacro:get_mesh name="gripper_connector" type="collision"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0 0.036423269171482079709 0.075503655548620457472" rpy="-1.3439035240356334011 -0 0" />
+                <geometry>
+                    <xacro:get_mesh name="etiqueta" type="visual"/>
+                </geometry>
+                <material name="etiqueta_material">
+                    <color rgba="0.69019607843137253944 0.69019607843137253944 0.69019607843137253944 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.036423269171482079709 0.075503655548620457472" rpy="-1.3439035240356334011 -0 0" />
+                <geometry>
+                    <xacro:get_mesh name="etiqueta" type="collision"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0 0.001000000000000025608 -3.8353651851674719353e-17" rpy="2.9837243786801082024e-16 -0 0" />
+                <geometry>
+                    <xacro:get_mesh name="egh_80" type="visual"/>
+                </geometry>
+                <material name="egh_80_material">
+                    <color rgba="0.69019607843137253944 0.69019607843137253944 0.69019607843137253944 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.001000000000000025608 -3.8353651851674719353e-17" rpy="2.9837243786801082024e-16 -0 0" />
+                <geometry>
+                    <xacro:get_mesh name="egh_80" type="collision"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0.0 0.00099144218198634042477 0.048851498325995605654" rpy="0 0 0"/>
+                <mass value="0.8940741992945057115" />
+                <inertia ixx="0.00144341178416013214" ixy="-1.0815141178448789754e-07"  ixz="-4.1196228146560501818e-07" iyy="0.0016329060271123971206" iyz="2.3017375574695289924e-07" izz="0.00088273402479363332826" />
+            </inertial>
+        </link>
+
+        <!--Right Finger-->
+        <link name="dedo_dir">
+            <visual>
+                <origin xyz="0.0023249999999999781258 0.08007769391666488823 0.031950000000000013112" rpy="3.141592653589793116 0 -3.141592653589793116" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/visual/almofada.dae"/--> 
+                    <xacro:get_mesh name="almofada" type="visual"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0023249999999999781258 0.08007769391666488823 0.031950000000000013112" rpy="3.141592653589793116 5.6106676794315656464e-47 -3.141592653589793116" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/collision/almofada.stl"/--> 
+                    <xacro:get_mesh name="almofada" type="collision"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0018250000000000375297 0.033299999999999774225 0.040700000000000007006" rpy="-9.244463733061490901e-33 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/visual/falanginha.dae"/--> 
+                <xacro:get_mesh name="falanginha" type="visual"/>
+                </geometry>
+                <material name="falanginha_material">
+                    <color rgba="0.89803921568627453897 0.89803921568627453897 0.89803921568627453897 1.0"/>
+                </material> 
+            </visual>
+            <collision>
+                <origin xyz="0.0018250000000000375297 0.033299999999999774225 0.040700000000000007006" rpy="-9.244463733061490901e-33 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/collision/falanginha.stl"/-->
+                    <xacro:get_mesh name="falanginha" type="collision"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0026249999999999433509 0.033299999999999801981 0.040700000000000007006" rpy="-9.244463733061490901e-33 1.570796326794896336 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/visual/falange.dae"/--> 
+                    <xacro:get_mesh name="falange" type="visual"/>
+                </geometry>
+                <material name="falange_material">
+                    <color rgba="0.89803921568627453897 0.89803921568627453897 0.89803921568627453897 1.0"/>
+                </material> 
+            </visual>
+            <collision>
+                <origin xyz="0.0026249999999999433509 0.033299999999999801981 0.040700000000000007006" rpy="-9.244463733061490901e-33 1.570796326794896336 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/collision/falange.stl"/--> 
+                    <xacro:get_mesh name="falange" type="collision"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0023249999999999772585 0.065299999999999774891 0.040700000000000007006" rpy="-9.244463733061490901e-33 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/visual/falangeta.dae"/-->
+                    <xacro:get_mesh name="falangeta" type="visual"/>
+                </geometry>
+                <material name="falangeta_material">
+                    <color rgba="0.89803921568627453897 0.89803921568627453897 0.89803921568627453897 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0.0023249999999999772585 0.065299999999999774891 0.040700000000000007006" rpy="-9.244463733061490901e-33 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/collision/falangeta.stl"/-->
+                    <xacro:get_mesh name="falangeta" type="collision" />
+                    <origin xyz="0 0 0" />
+                    <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+                            iyy="1.0" iyz="0.0" 
+                            izz="1.0" />
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0026250000000000014641 0.016000000000000014211 0.041500000000000009104" rpy="-9.244463733061490901e-33 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/visual/guia_dedo.dae"/-->
+                    <xacro:get_mesh name="guia_dedo" type="visual"/>
+                </geometry>
+                <material name="guia_dedo_material">
+                    <color rgba="0.2313725490196078538 0.2313725490196078538 0.2313725490196078538 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0.0026250000000000014641 0.016000000000000014211 0.041500000000000009104" rpy="-9.244463733061490901e-33 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/collision/guia_dedo.stl"/-->
+                    <xacro:get_mesh name="guia_dedo" type="collision"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0.0029825365929367041173 0.0278015996536302816 0.03487164697684287662" rpy="0 0 0"/>
+                <mass value="0.074377094721990874571" />
+                <inertia ixx="5.2720380310400654245e-05" ixy="1.3456724147132514789e-06"  ixz="5.2493950544052393425e-07" iyy="1.0703934703923688915e-05" iyz="-7.363436738255669011e-06" izz="4.9495184444868198551e-05" />
+            </inertial>
+        </link>
+    
+        <!-- Left Finger link-->
+        <link name="dedo_esq">
+            <visual>
+                <origin xyz="0.0023249999999999668501 0.080077693916664902107 0.031949999999999985356" rpy="3.141592653589793116 -0 -3.141592653589793116" />
+                <geometry>
+                    <!-- mesh filename="$(find ur_description)/meshes/shunk/visual/almofada.dae"/ -->
+                    <xacro:get_mesh name="almofada" type="visual"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0023249999999999668501 0.080077693916664902107 0.031949999999999985356" rpy="3.141592653589793116 -0 -3.141592653589793116" />
+                <geometry>
+                    <!-- <mesh filename="$(find ur_description)/meshes/shunk/collision/almofada.stl"/> -->
+                    <xacro:get_mesh name="almofada" type="collision"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0018250000000000266877 0.033299999999999760347 0.040700000000000027822" rpy="0 1.570796326794896558 0" />
+                <geometry>
+                    <!--<mesh filename="$(find ur_description)/meshes/shunk/visual/falanginha.dae"/> --> 
+                    <xacro:get_mesh name="falanginha" type="visual"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0018250000000000266877 0.033299999999999760347 0.040700000000000027822" rpy="0 1.570796326794896558 0" />
+                <geometry>
+                    <!-- <mesh filename="$(find ur_description)/meshes/shunk/collision/falanginha.stl"/> -->
+                    <xacro:get_mesh name="falanginha" type="collision"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0026249999999999372793 0.033299999999999760347 0.040700000000000013944" rpy="0 1.570796326794896336 0" />
+                <geometry>
+                    <!-- <mesh filename="$(find ur_description)/meshes/shunk/visual/falange.dae"/> -->
+                    <xacro:get_mesh name="falange" type="visual"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0026249999999999372793 0.033299999999999760347 0.040700000000000013944" rpy="0 1.570796326794896336 0" />
+                <geometry>
+                    <!-- mesh filename="$(find ur_description)/meshes/shunk/collision/falange.stl"/--> 
+                    <xacro:get_mesh name="falange" type="collision"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0023249999999999707533 0.065299999999999677747 0.040700000000000013944" rpy="0 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/visual/falangeta.dae"/--> 
+                    <xacro:get_mesh name="falangeta" type="visual"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0023249999999999707533 0.065299999999999677747 0.040700000000000013944" rpy="0 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/collision/falangeta.stl"/-->
+                    <xacro:get_mesh name="falangeta" type="visual"/>
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0.0026250000000000014641 0.016000000000000000333 0.041500000000000002165" rpy="0 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/visual/guia_dedo.dae"/--> 
+                    <xacro:get_mesh name="guia_dedo" type="visual"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0026250000000000014641 0.016000000000000000333 0.041500000000000002165" rpy="0 1.570796326794896558 0" />
+                <geometry>
+                    <!--mesh filename="$(find ur_description)/meshes/shunk/collision/guia_dedo.stl"/-->
+                    <xacro:get_mesh name="guia_dedo" type="visual"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0.0029825365929366997805 0.027801599653630260783 0.03487164697684287662" rpy="0 0 0"/>
+                <mass value="0.074377094721990874571" />
+                <inertia ixx="5.272038031040062714e-05" ixy="1.3456724147132578317e-06"  ixz="5.2493950544052605183e-07" iyy="1.0703934703923699079e-05" iyz="-7.3634367382556766343e-06" izz="4.949518444486816467e-05" />
+            </inertial>
+        </link> 
+
+        <joint name="${tf_prefix}gripper_base_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="0 0 1.570796326794896558" />
+            <parent link="${tf_prefix}tool0" />
+            <child link="schunk_egh80_link" />
+            <axis xyz="0 0 1"/>
+            <!-- <limit effort="1" velocity="20" lower="0.0050000000000000001041" upper="0.044999999999999998335"/>
+            <dynamics damping="0" friction="0"/> -->
+        </joint>
+        <!-- Juntas dos dedos -->
+        <joint name="${tf_prefix}dedo_dir_joint" type="prismatic">
+            <origin xyz="0.032500000000000028866 0.0036249999999999928113 0.10919999999999996376" rpy="1.570796326794896558 0 -1.570796326794896558" />
+            <axis xyz="0 0 1"/>
+            <limit effort="1" velocity="0.08" accelerarion="0.1" lower="0.0" upper="0.040"/>
+            <joint_properties friction="0.0"/>
+            <parent link="schunk_egh80_link" />
+            <child link="dedo_dir" />  
+        </joint>
+
+        <joint name="${tf_prefix}dedo_esq_joint" type="prismatic">
+            <origin xyz="-0.022499999999999978351 -0.0016250000000000075148 0.10919999999999994988" rpy="1.570796326794896558 0 1.570796326794896558" />
+            <axis xyz="0 0 1" />
+            <limit effort="1" velocity="0.08" accelerarion="0.1" lower="0.0" upper="0.040"/>
+            <joint_properties friction="0.0"/>
+            <parent link="schunk_egh80_link" />
+            <child link="dedo_esq"/>      
+        </joint>
+
+        <transmission name="${prefix}_base_trans_dedo_dir">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="${prefix}_base_motor_dir">
+                <mechanicalReduction>1</mechanicalReduction>
+                <motorTorqueConstant>1</motorTorqueConstant>
+            </actuator>
+            <joint name="${tf_prefix}_dedo_dir_joint" >
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="${prefix}_base_trans_dedo_esq">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="${prefix}_base_motor_esq">
+                <mechanicalReduction>-1</mechanicalReduction>
+                <motorTorqueConstant>1</motorTorqueConstant>
+            </actuator>
+            <joint name="${tf_prefix}_dedo_esq_joint" >
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+    </xacro:macro>
+
+</robot>

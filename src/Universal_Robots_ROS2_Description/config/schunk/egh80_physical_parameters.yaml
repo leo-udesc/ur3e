@@ -1,0 +1,22 @@
+# Physical parameters  gripper Schunk egh80
+
+#inertia_parameters:
+
+inertia_parameters:
+  egh80_gripper: 2.091  
+  ixx: 3925.689  
+  ixy: 0.22 
+  ixz: 2.086
+  iyx: 0.22
+  iyy: 4382.815
+  iyz: 0.386
+  izx: 2.086
+  izy: 0.386
+  izz: 2040.865
+
+
+  center_of_mass:
+    egh80_gripper_cog:
+    x: 1.786
+    y: 7.065
+    z: 74.32

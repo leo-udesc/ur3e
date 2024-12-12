@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:include filename="$(find Schunk_EGH80_ROS2_Description)/urf/schunk_egh80_urdf.xacro" />
+    <xacro:include filename="$(Universal_Robots_ROS2_Description/urdf/ur_macro.xacro"/>
+
+    <link name="gripper_connector">
+        <visual>
+            <origin xyz="0.0 0.001000000000000025608 0.0" rpy="2.9837243786801082024e-16 -0 0" />
+            <geometry>
+                <xacro:get_mesh name="gripper_connector" type="visual"/>
+            </geometry>
+            <material name="gripper_connector_material">
+                <color rgba="0.50196078431372548323 0.50196078431372548323 0.50196078431372548323 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.001000000000000025608 -3.8353651851674719353e-17" rpy="2.9837243786801082024e-16 -0 0" />
+            <geometry>
+                <xacro:get_mesh name="gripper_connector" type="collision"/>
+            </geometry>
+        </collision>
+        <inectial>
+            <mass value="0.175"/>
+            <inertia    ixx="47.63447e-6"   ixy="-0.19566e-6"   ixz="-0.19566e-6"
+                        iyx="-0.19566e-6"   iyy="63.13504e-6"   iyz="1.974e-16"
+                        izx="-0.19566e-6"   izy="1.974e-16"     izz="107.57462e-6" />
+        </inertial>
+    </link>
+
+    <joint name="${tf_prefix}gripper_connector" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 1.570796326794896558" />
+        <parent link="${tf_prefix}tool0" />
+        <child link="connector_tcp" />
+        <axis xyz="0 0 1"/>
+    </joint>
+    
+    <!--Attach the Schunk EGH80 gripper-->
+    <xacro:egh80_gripper prefix="" parent="gripper_connector" >
+        <origin xyz="0.0 0.001 0.0" rpy="0 0 0" />
+    </xacro:egh80_gripper>
+
+</robot>

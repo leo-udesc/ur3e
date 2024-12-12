@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <link name="tower_base_link"/>
+     <visual>
+        <origin xyz="0.0 4.0 4.0" rpy="0 0 0"/>
+        <geometry>
+          <xacro:get_mesh name="TowerBase" type="visual"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0.0 4.0 0=4.0" rpy="0 0 0"/>
+        <geometry>
+          <xacro:get_mesh name="TowerBase" type="collision"/>
+        </geometry>
+      </collision> 
+    </link>
