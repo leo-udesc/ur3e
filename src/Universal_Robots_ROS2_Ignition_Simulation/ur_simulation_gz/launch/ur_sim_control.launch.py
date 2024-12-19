@@ -65,7 +65,10 @@ def launch_setup(context, *args, **kwargs):
     launch_rviz = LaunchConfiguration("launch_rviz")
     gazebo_gui = LaunchConfiguration("gazebo_gui")
     world_file = LaunchConfiguration("world_file")
-
+    world_file_path = PathJoinSubstitution(
+        [FindPackageShare("Universal_Robots_ROS2_Ignition_Simulation"), "/ur_simulation_gz/sdf/worlds", "custom_world.sdf"]
+    )
+ 
     initial_joint_controllers = PathJoinSubstitution(
         [FindPackageShare(runtime_config_package), "config", controllers_file]
     )
@@ -177,21 +180,31 @@ def launch_setup(context, *args, **kwargs):
             "true",
         ],
     )
+    
     gz_launch_description_with_gui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [FindPackageShare("ros_gz_sim"), "/launch/gz_sim.launch.py"]
         ),
-        launch_arguments={"gz_args": ["-r", "-v", "6", world_file]}.items(),
-        condition=IfCondition(gazebo_gui),
+        launch_arguments={
+            'gz_args': [f'-r -v 4 {"/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/custom_world.sdf"}'], 'on_exit_shutdown' : 'true'}.items(),
+        #launch_arguments={
+        #    'gz_args': [f'-s -r -v 4 {"/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/playground.sdf"}'], 'on_exit_shutdown' : 'true'}.items(),
+            #launch_arguments={"gz_args": ["-r", "-v", "4", world_file]}.items(),
+           condition=IfCondition(gazebo_gui),
     )
 
     gz_launch_description_without_gui = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [FindPackageShare("ros_gz_sim"), "/launch/gz_sim.launch.py"]
         ),
-        launch_arguments={"gz_args": ["-s", "-r", "-v", "6", world_file]}.items(),
+        launch_arguments={
+            'gz_args': [f'-s -r -v 4 {"/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/custom_world.sdf"}'], 'on_exit_shutdown' : 'true'}.items(),
+        #launch_arguments={
+        #   'gz_args': [f'-s -r -v 4 {"/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/playground.sdf"}'], 'on_exit_shutdown' : 'true'}.items(),
+        #launch_arguments={"gz_args": ["-s", "-r", "-v", "4", world_file]}.items(),
         condition=UnlessCondition(gazebo_gui),
     )
+    
 
     # Make the /clock topic available in ROS
     gz_sim_bridge = Node(
@@ -305,7 +318,7 @@ def generate_launch_description():
             default_value="joint_trajectory_controller",
             description="Robot controller to start.",
         )
-    )
+    ) 
     declared_arguments.append(
         DeclareLaunchArgument("launch_rviz", default_value="true", description="Launch RViz?")
     )
@@ -317,7 +330,9 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "world_file",
-            default_value="/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/playground.sdf",
+            #default_value="/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/payground.sdf",
+            default_value="/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/custom_world.sdf", 
+            #default_value="empty.sdf",
             description="Gazebo world file (absolute path or filename from the gazebosim worlds collection) containing a custom world.",
         )
     )
