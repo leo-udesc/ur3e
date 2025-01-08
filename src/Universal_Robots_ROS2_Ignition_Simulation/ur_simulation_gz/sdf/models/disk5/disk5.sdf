@@ -1,36 +1,35 @@
+<?xml version="1.0" ?>
 <sdf version="1.6">
-<model name="onshape">
-    <link name="disk5">
-        <frame name="disk5_frame"><pose>0 0 0 0 -0 0</pose></frame>
-        <visual name="disk5_0_disk5_visual">
-            <pose>0 0 0 0 -0 0</pose>
-            <geometry>
-            <mesh><uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk5/disk5.dae</uri></mesh>
-            </geometry>
-            <material>
-                <ambient>0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1</ambient>
-                <diffuse>0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1</diffuse>
-                <specular>0.1 0.1 0.1 1</specular>
-                <emissive>0 0 0 0</emissive>
-            </material>
-        </visual>
-        <collision name="disk5_0_disk5_visual">
-            <pose>0 0 0 0 -0 0</pose>
-            <geometry>
-            <mesh><uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk5/disk5.stl</uri></mesh>
-            </geometry>
-        </collision>
-        <inertial>
-            <pose frame="disk5_frame">-3.2478793369870937369e-17 -0.032500000000000021927 0.040500000000000001277 0 0 0</pose>
-            <mass>0.014844025288211768962</mass>
-            <inertia>
-                <ixx>9.373383468452059865e-07</ixx><ixy>0</ixy><ixz>0</ixz>
-                <iyy>9.373383468452059865e-07</iyy><iyz>0</iyz>
-                <izz>1.7163404239494864273e-06</izz>
-            </inertia>
-        </inertial>
-    </link>
-
-
-</model>
+    <model name="disk5">
+        <link name="disk5">
+            <frame name="disk5_frame"><pose>0 0 0 0 -0 0</pose></frame>
+            <visual name="disk5_0_disk5_visual">
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                <mesh><uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk5/disk5.dae</uri></mesh>
+                </geometry>
+                <material>
+                    <ambient>0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1</ambient>
+                    <diffuse>0.08627450980392156743 0.31764705882352939348 0.69019607843137253944 1</diffuse>
+                    <specular>0.1 0.1 0.1 1</specular>
+                    <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+            <collision name="disk5_0_disk5_visual">
+                <pose>0 0 0 0 -0 0</pose>
+                <geometry>
+                <mesh><uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk5/disk5.stl</uri></mesh>
+                </geometry>
+            </collision>
+            <inertial>
+                <pose frame="disk5_frame">-3.2478793369870937369e-17 -0.032500000000000021927 0.040500000000000001277 0 0 0</pose>
+                <mass>0.014844025288211768962</mass>
+                <inertia>
+                    <ixx>9.373383468452059865e-07</ixx><ixy>0</ixy><ixz>0</ixz>
+                    <iyy>9.373383468452059865e-07</iyy><iyz>0</iyz>
+                    <izz>1.7163404239494864273e-06</izz>
+                </inertia>
+            </inertial>
+        </link>
+    </model>
 </sdf>

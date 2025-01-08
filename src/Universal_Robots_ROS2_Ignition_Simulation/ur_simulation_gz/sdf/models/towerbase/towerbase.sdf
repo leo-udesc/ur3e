@@ -1,6 +1,7 @@
+<?xml version="1.0"?>
 <sdf version="1.6">
     <model name="towerbase">
-        <link name="towerbase">
+        <link name="base_link">
             <frame name="towerbase_frame">
                 <pose>0 0 0 0 -0 0</pose>
             </frame>
@@ -27,7 +28,6 @@
                 <inertia><ixx>0.00018404470856662861773</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.0036347022723018217877</iyy><iyz>0</iyz><izz>0.0037843567593217096803</izz></inertia>
             </inertial>
         </link>
-
-
     </model>
+
 </sdf>
