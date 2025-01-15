@@ -116,7 +116,7 @@ def launch_setup(context, *args, **kwargs):
         executable="robot_state_publisher",
         output="both",
         parameters=[{"use_sim_time": True}, robot_description],
-    )
+    )    
 
     rviz_node = Node(
         package="rviz2",
@@ -149,12 +149,6 @@ def launch_setup(context, *args, **kwargs):
         arguments=[initial_joint_controller, "-c", "/controller_manager"],
         condition=IfCondition(start_joint_controller),
     )
-    initial_joint_controller_spawner_stopped = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=[initial_joint_controller, "-c", "/controller_manager", "--stopped"],
-        condition=UnlessCondition(start_joint_controller),
-    )
     egh80_dedo_dir_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -164,8 +158,14 @@ def launch_setup(context, *args, **kwargs):
         package="controller_manager",
         executable="spawner",
         arguments=["egh80_dedo_esq_controller", "-c", "/controller_manager"],
-    )   
-
+    )
+    initial_joint_controller_spawner_stopped = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[initial_joint_controller, "-c", "/controller_manager", "--stopped"],
+        condition=UnlessCondition(start_joint_controller),
+    )
+   
     # GZ nodes
     gz_spawn_entity = Node(
         package="ros_gz_sim",
@@ -186,10 +186,10 @@ def launch_setup(context, *args, **kwargs):
             [FindPackageShare("ros_gz_sim"), "/launch/gz_sim.launch.py"]
         ),
         launch_arguments={
-            'gz_args': [f'-r -v 4 {"/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/custom_world.sdf"}'], 'on_exit_shutdown' : 'true'}.items(),
+            'gz_args': [f'-r -v 4 {"/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/custom_world.sdf"}'],'on_exit_shutdown' : 'true'}.items(),
         #launch_arguments={
         #    'gz_args': [f'-s -r -v 4 {"/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/playground.sdf"}'], 'on_exit_shutdown' : 'true'}.items(),
-            #launch_arguments={"gz_args": ["-r", "-v", "4", world_file]}.items(),
+        #   launch_arguments={"gz_args": ["-r", "-v", "4", world_file]}.items(),
            condition=IfCondition(gazebo_gui),
     )
 
@@ -330,7 +330,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "world_file",
-            #default_value="/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/payground.sdf",
+            #default_value="/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/playground.sdf",
             default_value="/home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/worlds/custom_world.sdf", 
             #default_value="empty.sdf",
             description="Gazebo world file (absolute path or filename from the gazebosim worlds collection) containing a custom world.",
