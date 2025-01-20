@@ -1,0 +1,27 @@
+<sdf version="1.6">
+<model name="base">
+<link name="">
+<frame name="base_frame"><pose>0 0 0 0 -0 0</pose></frame>
+<visual name="base_0_base_visual">
+<pose>0 0 0 0 -0 0</pose>
+<geometry>
+<mesh><uri>file://base.stl</uri></mesh>
+</geometry>
+<material><ambient>0.62352941176470588758 0.66666666666666662966 0.70196078431372543882 1</ambient><diffuse>0.62352941176470588758 0.66666666666666662966 0.70196078431372543882 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
+</visual>
+<collision name="base_0_base_visual">
+<pose>0 0 0 0 -0 0</pose>
+<geometry>
+<mesh><uri>file://hanoi_tower_sdf/base.stl</uri></mesh>
+</geometry>
+</collision>
+<inertial>
+<pose frame="base_frame">3.6579115468746992513e-17 -8.1861602825315453698e-18 0.0065617668257740994001 0 0 0</pose>
+<mass>0.8440431249300747174</mass>
+<inertia><ixx>0.00072965697584519660906</ixx><ixy>3.5363919353738898378e-09</ixy><ixz>0</ixz><iyy>0.0063466599438573925718</iyy><iyz>0</iyz><izz>0.0069506689882914999765</izz></inertia>
+</inertial>
+</link>
+
+
+</model>
+</sdf>

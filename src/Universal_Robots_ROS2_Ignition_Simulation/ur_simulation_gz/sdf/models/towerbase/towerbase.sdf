@@ -1,33 +1,51 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <sdf version="1.6">
-    <model name="towerbase">
-        <link name="base_link">
-            <frame name="towerbase_frame">
-                <pose>0 0 0 0 -0 0</pose>
-            </frame>
-            <visual name="towerbase_0_towerbase_visual">
-                <pose>-0.013237686827778816223 0.047771236188709736981 0.0043710258603096019403 0 -0 0</pose>
-                <geometry>
-                    <mesh>
-                        <uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/towerbase/towerbase.dae</uri>
-                    </mesh>
-                </geometry>
-                <material><ambient>0.96078431372549022438 0.83529411764705885357 0.47058823529411764053 1</ambient><diffuse>0.96078431372549022438 0.83529411764705885357 0.47058823529411764053 1</diffuse><specular>0.1 0.1 0.1 1</specular><emissive>0 0 0 0</emissive></material>
-            </visual>
-            <collision name="towerbase_0_towerbase_visual">
-                <pose>-0.013237686827778816223 0.047771236188709736981 0.0043710258603096019403 0 -0 0</pose>
-                <geometry>
-                    <mesh>
-                        <uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/towerbase/towerbase.stl</uri>
-                    </mesh>
-                </geometry>
-            </collision>
-            <inertial>
-                <pose frame="towerbase_frame">-0.013237686827778696527 0.015271236188709728931 0.0050520856935159473566 0 0 0</pose>
-                <mass>0.48339258768527876287</mass>
-                <inertia><ixx>0.00018404470856662861773</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.0036347022723018217877</iyy><iyz>0</iyz><izz>0.0037843567593217096803</izz></inertia>
-            </inertial>
-        </link>
-    </model>
+<model name="towerbase">
+    <link name="towerbase_link">
+        <frame name="towerbase_frame"><pose>0 0 0 0 -0 0</pose></frame>
+        <visual name="towerbase_0_towerbase_visual">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+                <mesh>
+                    <uri>file:///home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/towerbase/towerbase.dae</uri>
+                </mesh>
+            </geometry>
+            <material>
+                <ambient>0.73725490196078435901 0.9372549019607843146 0.91764705882352937127 1</ambient>
+                <diffuse>0.73725490196078435901 0.9372549019607843146 0.91764705882352937127 1</diffuse>
+                <specular>0.1 0.1 0.1 1</specular>
+                <emissive>0 0 0 0</emissive>
+            </material>
+        </visual>
+        <collision name="towerbase_0_towerbase_visual">
+            <pose>0 0 0 0 -0 0</pose>
+            <geometry>
+                <mesh>
+                    <uri>file:///home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/towerbase/towerbase.stl</uri>
+                </mesh>
+            </geometry>
+            <surface>
+            <friction>
+                <ode>
+                    <mu>0.05</mu> <!-- Coeficiente de fricção estática -->
+                    <mu2>0.01</mu2> <!-- Coeficiente de fricção dinâmica -->
+                </ode>
+                <torsional>
+                    <coefficient>0.05</coefficient> <!-- Coeficiente de fricção torsional -->
+                </torsional>
+            </friction>
+        </surface>
+        </collision>
+        <inertial>
+            <pose>4.6403630397362222697e-17 -7.9739324980047018321e-18 0.0076524240229390626603 0 0 0</pose>
+            <mass>0.85676684417617976486</mass>
+            <inertia>
+                <ixx>0.00079776290276809967879</ixx><ixy>0.000000000000000000000</ixy><ixz>0</ixz>
+                <iyy>0.0064995909410444250784</iyy><iyz>0</iyz>
+                <izz>0.0070356536370976569678</izz>
+            </inertia>
+        </inertial>
+    </link>
 
+</model>
 </sdf>

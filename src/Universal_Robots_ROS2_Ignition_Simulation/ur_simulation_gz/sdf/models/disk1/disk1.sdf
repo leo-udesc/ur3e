@@ -1,40 +1,45 @@
-<?xml version="1.0"?> 
-<sdf version="1.6">
+<?xml version="1.0"?>
+<sdf version="1.9">
     <model name="disk1">
-        <link name="disk1">
-            <frame name="disk1_frame">
-                <pose>0 0 0 0 0 0</pose>
-            </frame>
-            <visual name="disk1_0_disk1_visual">
-                <pose>0 0 0 0 -0 0</pose>
-                <geometry>
-                    <mesh>
-            	        <uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk1/disk1.dae</uri>
-                    </mesh>
-                </geometry>
-                <material>
-                    <ambient>0.73725490196078435901 0.9372549019607843146 0.91764705882352937127 1</ambient>
-                    <diffuse>0.73725490196078435901 0.9372549019607843146 0.91764705882352937127 1</diffuse>
-                    <specular>0.1 0.1 0.1 1</specular>
-                    <emissive>0 0 0 0</emissive>
-                </material>
-            </visual>
-            <collision name="disk1_0_disk1_visual">
-                <pose>0 0 0 0 -0 0</pose>
-                <geometry>
-                    <mesh>
-                        <uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk1/disk1.stl</uri>
-                    </mesh>
-                </geometry>
-            </collision>
-            <inertial>
-                <pose frame="disk1_frame">-2.9055223408357371652e-17 -0.032500000000000021927 0.0084999999999999971412 0 0 0</pose>
-                <mass>0.041987385815227588892</mass>
-                <inertia>
-                    <ixx>6.8500670483134849545e-06</ixx><ixy>0</ixy><ixz>0</ixz>
-                    <iyy>6.8500670483134841075e-06</iyy><iyz>0</iyz>
-                    <izz>1.3252268647931208148e-05</izz></inertia>
-            </inertial>
+        <link name="disk1_link">
+          <frame name="disk1_frame">
+            <pose>0 0 0 0 -0 0</pose>
+          </frame>
+          <collision name="disk1_collision">
+            <geometry>
+              <cylinder>
+                <radius>0.035</radius>
+                <length>0.010</length>
+              </cylinder>
+            </geometry>
+          </collision>
+          <collision name="hole_collision">
+            <geometry>
+              <cylinder>
+                <radius>0.0125</radius>
+                <length>0.010</length>
+              </cylinder>
+            </geometry>
+            <pose>0.10000000000000000555 -1.469576158976823676e-17 -0.014999999999999999445 0 -0 0</pose>
+          </collision>
+          <visual name="disk1_visual">
+            <pose>0.10000000000000000555 -1.469576158976823676e-17 -0.014999999999999999445 0 -0 0</pose>
+            <geometry>
+              <mesh>
+                <uri>file:///home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk1/disk1.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+          <inertial>
+            <pose>0 6.2405005324132813478e-20 1.7347234759768070944e-18 0 0 0</pose>
+            <mass>0.85676684417617976486</mass>
+            <inertia>
+              <ixx>0.00079776290276809967879</ixx><ixy>3.4841825361120128937e-09</ixy><ixz>0</ixz>
+              <iyy>0.0064995909410444250784</iyy><iyz>0</iyz>
+              <izz>0.0070356536370976569678</izz>
+            </inertia>
+          </inertial>
         </link>
     </model>
 </sdf>
+

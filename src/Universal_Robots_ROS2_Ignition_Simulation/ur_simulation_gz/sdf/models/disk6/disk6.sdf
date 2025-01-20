@@ -22,16 +22,18 @@
             <collision name="disk6_0_disk6_visual">
                 <pose>0 0 0 0 -0 0</pose>
                 <geometry>
-                    <mesh><uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk6/disk6.stl</uri></mesh>
+                    <mesh>
+                        <uri>file://home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/disk6/disk6.stl</uri>
+                    </mesh>
                 </geometry>
             </collision>
             <inertial>
-                <pose frame="disk6_frame">-3.4007953628298417835e-17 -0.032500000000000028866 0.048499999999999994504 0 0 0</pose>
-                <mass>0.010178760197630930956</mass>
+                <pose>-3.4007953628298417835e-17 -0.032500000000000028866 0.048499999999999994504 0 0 0</pose>
+                <mass>0.01111778</mass>
                 <inertia>
-                    <ixx>4.6779885408278811885e-07</ixx><ixy>0</ixy><ixz>0</ixz>
-                    <iyy>4.6779885408278811885e-07</iyy><iyz>0</iyz>
-                    <izz>8.2702426605751302751e-07</izz>
+                    <ixx>6.761e-7</ixx><ixy>0</ixy><ixz>0</ixz>
+                    <iyy>6.761e-7</iyy><iyz>0</iyz>
+                    <izz>1.197e-6</izz>
                 </inertia>
             </inertial>
         </link>

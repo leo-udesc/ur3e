@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="towerbase">
+    <link name="towerbase_link">
+      <visual name="towerbase_0_towerbase_visual">
+        <pose>0.000000000 0.000000000 0.00000000 0.0000000000 -0.000000000 0.000000000</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/towerbase/towerbase.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="towerbase_0_towerbase_collision">
+        <pose>0.000000000 0.000000000 0.00000000 0.0000000000 -0.000000000 0.000000000</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/leo/workspace/ur_gz/src/Universal_Robots_ROS2_Ignition_Simulation/ur_simulation_gz/sdf/models/towerbase/towerbase.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <inertial>
+        <pose>0.000000000 0.000000000 0.00120000 0.000000000 -0.000000000 0.00000000</pose>
+        <mass>0.844043</mass>
+        <inertia>
+          <ixx>0.00079776</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.00649959</iyy><iyz>0</iyz>
+          <izz>0.00703565</izz>
+        </inertia>
+      </inertial>
+    </link>
+  </model>
+</sdf>
